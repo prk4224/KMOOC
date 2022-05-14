@@ -33,6 +33,7 @@ class LecturesAdapter : RecyclerView.Adapter<LectureViewHolder>() {
 
     override fun onBindViewHolder(holder: LectureViewHolder, position: Int) {
         val lecture = lectures[position]
+        holder.bind(lecture)
         holder.itemView.setOnClickListener { onClick(lecture) }
     }
 }

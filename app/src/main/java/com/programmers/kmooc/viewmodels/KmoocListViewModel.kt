@@ -13,13 +13,12 @@ class KmoocListViewModel(private val repository: KmoocRepository) : ViewModel() 
     var lectureList = MutableLiveData<LectureList>()
 
     fun list() {
-        repository.list { lectureList ->
-            progressVisible.postValue(true)
-            repository.list {
-                this.lectureList.postValue(it)
-                progressVisible.postValue(false)
-            }
+        progressVisible.postValue(true)
+        repository.list {
+            this.lectureList.postValue(it)
+            progressVisible.postValue(false)
         }
+
     }
 
     fun next() {
